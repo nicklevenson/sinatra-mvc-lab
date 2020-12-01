@@ -1,8 +1,7 @@
 describe "Pig Latinizer App" do
   describe "GET '/'" do
-
     before(:each) do
-      get '/'
+      get "/"
     end
 
     it "returns a 200 status code" do
@@ -25,13 +24,12 @@ describe "Pig Latinizer App" do
     it "renders the input field for the phrase" do
       expect(last_response.body).to include("user_phrase")
     end
-
   end
 
   describe "POST '/piglatinize'" do
     before do
-      post '/piglatinize', {
-        "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo"
+      post "/piglatinize", {
+        "user_phrase" => "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo"
       }
     end
 
@@ -46,8 +44,8 @@ describe "Pig Latinizer App" do
 
   describe "POST '/piglatinize' again" do
     before do
-      post '/piglatinize', {
-        "user_phrase"=> "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish"
+      post "/piglatinize", {
+        "user_phrase" => "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish"
       }
     end
 
@@ -59,5 +57,4 @@ describe "Pig Latinizer App" do
       expect(last_response.body).to include("eHay asway anway oldway anmay owhay ishedfay aloneway inway away iffskay inway ethay ulfGay eamStray andway ehay adhay onegay eightyway ourfay aysday ownay ithoutway akingtay away ishfay")
     end
   end
-
 end
